@@ -76,3 +76,41 @@ if __name__ == "__main__":
     plt.legend()
     plt.show()
 '''
+
+#c. Read a matrix and print only the even elements.
+
+import matplotlib.pyplot as plt
+import time
+import numpy as np
+
+def find_even_elements(matrix, rows, cols):
+    even_elements = []
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] % 2 == 0:
+                even_elements.append(matrix[i][j])
+    return even_elements
+'''
+if __name__ == "__main__":
+    x = []
+    y = []
+
+    for n in range(100, 1001, 100):
+        x.append(n * n)
+
+        matrix = np.random.randint(1, 1000, size=(n, n))
+
+        start_time = time.time()
+        even_elements = find_even_elements(matrix, n, n)
+        end_time = time.time()
+
+        y.append(end_time - start_time)
+
+    plt.plot(x, y, marker='o', linestyle='-', label='Time taken to find even elements')
+    plt.xlabel("Input size (n × n)")
+    plt.ylabel("Time (seconds)")
+    plt.title("Time Complexity of Finding Even Elements in a Matrix")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+'''
