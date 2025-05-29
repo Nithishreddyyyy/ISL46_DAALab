@@ -21,3 +21,25 @@ if __name__ == "__main__":
     print("-----Transitive Closure Matrix-----")
     for row in a:
         print(row)
+def Floyd(a, n):
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if a[i][k] + a[k][j] < a[i][j]:
+                    a[i][j] = a[i][k] + a[k][j]
+
+if __name__ == "__main__":
+    n = 4
+    inf = 999  # Representing "infinity" for unreachable paths
+    dist = [
+        [0, 40, 150, inf],
+        [inf, 0, 60, inf],
+        [inf, inf, 0, 20],
+        [30, inf, inf, 0]
+    ]
+
+    Floyd(dist, n)
+
+    print("-----All Pair Shortest Path-----")
+    for row in dist:
+        print(row)
