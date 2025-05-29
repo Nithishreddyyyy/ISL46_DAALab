@@ -1,25 +1,37 @@
-#Breadth-First-Search 
+# Breadth-First Search (BFS)
+
 def bfs(u):
-    count = 0
-    queue.append(u)
+    queue = [u]
     visited[u] = 1
     while queue:
-        u = queue.pop(0)
-        count += 1
-        print(u)
+        current = queue.pop(0)
+        print(current)
         for v in range(n):
-            if visited[v] == 0 and graph[u][v] == 1:
+            if visited[v] == 0 and graph[current][v] == 1:
                 queue.append(v)
                 visited[v] = 1
 
 if __name__ == "__main__":
-    global visited, queue
-    visited = [0] * n  # Better initialization
-    queue = []         # Reset in case reused
+    global visited, n, graph
+
+    graph = [
+        [0, 1, 1, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+
+    n = len(graph)
+    visited = [0] * n
     source = 0
-    print("Adjacency Matrix")
+
+    print("Adjacency Matrix:")
     for row in graph:
         print(row)
-    print("BFS Order")
-    bfs(source)
 
+    print("\nBFS Traversal Order:")
+    bfs(source)
