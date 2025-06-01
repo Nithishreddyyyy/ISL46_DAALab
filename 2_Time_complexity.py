@@ -16,7 +16,9 @@ if __name__ == "__main__":
   y = []
 
   for n in range(10, 100, 10):
-    a = [random.randint(1, n) for _ in range(n)]
+    a = []
+    for i in range(n):
+        a.append(random.randint(1, n))
     x.append(n)
 
     start = t.time()
@@ -25,8 +27,6 @@ if __name__ == "__main__":
 
     gap = end - start
     y.append(gap)
-
-    print(a)
     print("sum: ", res)
 
   plt.plot(x, y, label="Sum of elements in array")
@@ -48,7 +48,7 @@ def decimal_to_binary(n):
     binary = ""
     while n > 0:
         remainder = n % 2
-        binary = str(remainder) + binary
+        binary += str(remainder)
         n = n // 2
     return binary
 
