@@ -1,31 +1,25 @@
-# Knapsack
-#Knapsack
+def knapsack(W, wt, val, n):
+    dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
 
-def show (w,p,n,m,v):
-    print(v)
-    profit=v[n][m]
-    i=n
-    j=m
-    while(i>0 and profit>0):
-        if v[i][j]!=v[i-1][j]:
-            print("item weight=",w[i]," item profit=",p[i])
-            j=j-w[i]
-        i-=1
-def knapsack(w,p,n,m):
-    v = [[0 for x in range(m + 1)] for x in range(n + 1)]
-    for i in range(n+1):
-        for j in range(m+1):
-            if i==0 or j==0:
-                v[i][j]=0
-            elif w[i]>j:
-                v[i][j]=v[i-1][j]
+    for i in range(1, n + 1):
+        for w in range(W + 1):
+            if wt[i-1] <= w:
+                dp[i][w] = max(val[i-1] + dp[i-1][w - wt[i-1]], dp[i-1][w])
             else:
-                v[i][j]=max(v[i-1][j],p[i]+v[i-1][j-w[i]])
-    show(w,p,n,m,v)
-    return v[n][m]
-w=[0,2,1,3,2]
-p=[0,12,10,20,15]
-n=4
-m=5
-res=knapsack(w,p,n,m)
-print("optimal solution=", res)
+                dp[i][w] = dp[i-1][w]
+
+    print("Maximum Profit:", dp[n][W])
+    print("Selected item indices (0-based): ", end="")
+    w = W
+    for i in range(n, 0, -1):
+        if dp[i][w] != dp[i-1][w]:
+            print(i-1, end=" ")
+            w -= wt[i-1]
+    print()
+
+profit = [0,12,10,20,15]
+weight = [0,2,1,3,2]
+capacity = 50
+n = len(profit)
+
+knapsack(capacity, weight, profit, n)
