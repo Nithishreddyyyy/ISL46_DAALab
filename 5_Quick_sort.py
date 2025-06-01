@@ -1,55 +1,51 @@
 import matplotlib.pyplot as plt
 import random
-import time
+import time as t
 
-def quick_sort(arr, low, high):
+def quickSort(a,low,high):
     if low < high:
-        pivot_index = partition(arr, low, high)
-        quick_sort(arr, low, pivot_index - 1)
-        quick_sort(arr, pivot_index + 1, high)
+        pivot = partition(a,low,high)
+        quickSort(a,low,pivot-1)
+        quickSort(a,pivot+1,high)
 
-def partition(arr, low, high):
-    pivot = arr[low]
+def partition(a,low,high):
+    pivot = a[low]
     i = low + 1
     j = high
-
+    
     while True:
-        while i <= j and arr[i] <= pivot:
+        while i <= j and a[i] <= pivot:
             i += 1
-        while i <= j and arr[j] > pivot:
+        while i <= j and a[i] > pivot:
             j -= 1
         if i < j:
-            arr[i], arr[j] = arr[j], arr[i]
+            a[i],a[j] = a[j],a[i]
         else:
             break
-
-    arr[low], arr[j] = arr[j], arr[low]
+    
+    a[low] , a[j] = a[j] , a[low]
     return j
 
 if __name__ == "__main__":
     x = []
     y = []
-
-    for n in range(10000, 100001, 10000):
-        arr = [random.randint(1, n) for _ in range(n)]
+    
+    for n in range(100,10000,100):
+        a = [random.randint(1,n) for _ in range(n)]
         x.append(n)
-
-        print(f"\nArray size: {n}")
-        print("Random array (first 20 elements):", arr[:20])
-
-        start_time = time.perf_counter()
-        quick_sort(arr, 0, len(arr) - 1)
-        end_time = time.perf_counter()
-
-        y.append(end_time - start_time)
-        print("Sorted array (first 20 elements):", arr[:20])
-
-    # Plotting the results
-    plt.plot(x, y, color='cyan', marker='o', label='Quick Sort Time')
-    plt.title("Quick Sort Time Complexity")
-    plt.xlabel("Input Size (n)")
-    plt.ylabel("Time (seconds)")
+        print("Size of arr",n)
+        
+        start= t.time()
+        quickSort(a,0,len(a)-1)
+        end = t.time()
+        gap = end - start
+        
+        y.append(gap)
+        print("sorted array:",a[:20])
+        
+    plt.plot(x,y,label="Quick Sort")
+    plt.xlabel("Input Size")
+    plt.ylabel("Time")
     plt.grid(True)
     plt.legend()
-    plt.tight_layout()
     plt.show()
