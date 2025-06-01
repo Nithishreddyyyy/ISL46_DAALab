@@ -16,9 +16,7 @@ if __name__ == "__main__":
   y = []
 
   for n in range(10, 100, 10):
-    a = []
-    for i in range(n):
-        a.append(random.randint(1, n))
+    a = [random.randint(1,n) for _ in range(n)]
     x.append(n)
 
     start = t.time()
@@ -52,7 +50,6 @@ def decimal_to_binary(n):
         n = n // 2
     return binary
 
-'''
 if __name__ == "__main__":
     x = []
     y = []
@@ -75,7 +72,7 @@ if __name__ == "__main__":
     plt.title("Time complexcity of decimal to binary conversion")
     plt.legend()
     plt.show()
-'''
+
 
 #c. Read a matrix and print only the even elements.
 
@@ -90,7 +87,7 @@ def find_even_elements(matrix, rows, cols):
             if matrix[i][j] % 2 == 0:
                 even_elements.append(matrix[i][j])
     return even_elements
-'''
+
 if __name__ == "__main__":
     x = []
     y = []
@@ -113,4 +110,3 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.show()
-'''
