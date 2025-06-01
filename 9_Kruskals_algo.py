@@ -22,7 +22,7 @@ def kruskal(graph, n):
         if parent(u) != parent(v):
             print("connect\t", u, "--->", v, "=", graph[u][v])
             ecount += 1
-            p[parent(v)] = parent(u)   # Fixed union step here
+            p[parent(v)] = parent(u)
             total_cost += graph[u][v]
         graph[u][v] = graph[v][u] = 999
     print("MST total Cost= ", total_cost)
