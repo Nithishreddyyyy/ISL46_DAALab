@@ -1,30 +1,29 @@
-#Quick Sort 
 import matplotlib.pyplot as plt
 import random
-import time as t
+import time
 
-def quick_sort(a, low, high):
+def quick_sort(arr, low, high):
     if low < high:
-        j = partition(a, low, high)
-        quick_sort(a, low, j - 1)
-        quick_sort(a, j + 1, high)
+        pivot_index = partition(arr, low, high)
+        quick_sort(arr, low, pivot_index - 1)
+        quick_sort(arr, pivot_index + 1, high)
 
-def partition(a, low, high):
-    pivot = a[low]
+def partition(arr, low, high):
+    pivot = arr[low]
     i = low + 1
     j = high
 
     while True:
-        while i <= j and a[i] <= pivot:
+        while i <= j and arr[i] <= pivot:
             i += 1
-        while i <= j and a[j] > pivot:
+        while i <= j and arr[j] > pivot:
             j -= 1
         if i < j:
-            a[i], a[j] = a[j], a[i]
+            arr[i], arr[j] = arr[j], arr[i]
         else:
             break
 
-    a[low], a[j] = a[j], a[low]
+    arr[low], arr[j] = arr[j], arr[low]
     return j
 
 if __name__ == "__main__":
@@ -32,23 +31,25 @@ if __name__ == "__main__":
     y = []
 
     for n in range(10000, 100001, 10000):
-        a = [random.randint(1, n) for _ in range(n)]
+        arr = [random.randint(1, n) for _ in range(n)]
         x.append(n)
 
         print(f"\nArray size: {n}")
-        print("Random array (first 20 elements):", a[:20])
+        print("Random array (first 20 elements):", arr[:20])
 
-        start = t.time()
-        quick_sort(a, 0, len(a) - 1)
-        end = t.time()
+        start_time = time.perf_counter()
+        quick_sort(arr, 0, len(arr) - 1)
+        end_time = time.perf_counter()
 
-        y.append(end - start)
-        print("Sorted array (first 20 elements):", a[:20])
+        y.append(end_time - start_time)
+        print("Sorted array (first 20 elements):", arr[:20])
 
+    # Plotting the results
     plt.plot(x, y, color='cyan', marker='o', label='Quick Sort Time')
     plt.title("Quick Sort Time Complexity")
-    plt.xlabel("Input size (n)")
+    plt.xlabel("Input Size (n)")
     plt.ylabel("Time (seconds)")
     plt.grid(True)
     plt.legend()
+    plt.tight_layout()
     plt.show()
