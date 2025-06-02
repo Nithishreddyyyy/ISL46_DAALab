@@ -15,9 +15,12 @@ def dijkstra(graph, n, source):
             if not visited[i] and dist[i] < min_val:
                 min_val = dist[i]
                 u = i
-        if u == -1:
+                
+        if u == -1:     #for marking node as visited
             break  # no more reachable nodes
         visited[u] = 1
+        
+        
         for v in range(n):
             if not visited[v] and graph[u][v] != INF and dist[u] + graph[u][v] < dist[v]:
                 dist[v] = dist[u] + graph[u][v]
