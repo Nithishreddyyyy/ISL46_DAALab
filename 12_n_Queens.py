@@ -13,11 +13,11 @@ def is_safe(board, row, col, n):
 
 def solve(row, board, n):
     if row == n:
-        print("\nRoom allocation (S = Student):")
+        print("\nRoom allocation (Q = Queen):")
         for i in range(n):
             for j in range(n):
                 if board[i] == j:
-                    print("S", end=" ")
+                    print("Q", end=" ")
                 else:
                     print(".", end=" ")
             print()
