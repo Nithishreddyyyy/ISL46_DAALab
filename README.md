@@ -1,107 +1,143 @@
-# 📘 Algorithm Analysis and Design – Problem Solutions
+# 📘 Design and Analysis of Algorithms – Lab Solutions (ISL46)
 
-This repository contains **Python** implementations of various algorithmic problems related to sorting, searching, dynamic programming, and graph theory. Each solution includes time complexity analysis, and for selected problems, graphs are plotted to study performance with varying input sizes.
+This repository contains **Python implementations** of all programming problems from the **Semester End Examination (SEE)** for the course **Design and Analysis of Algorithms (ISL46)** at **Ramaiah Institute of Technology**. Although the original questions specify C, all programs here are implemented in **Python** with equivalent logic and performance analysis.
 
-> 📌 Note: Although the original questions specify C programs, all solutions in this repository are implemented in Python.
-> 
+Each solution includes:
+- ✅ Code implementation
+- ⏱️ Time complexity analysis
+- 📊 Graphs plotted using `matplotlib`
+- 🔍 Traces for selected algorithms
+
+> 📌 Note: This is part of coursework for the term **March 2025 – June 2025**.
 
 ---
 
-## 📝 List of Problems Solved
+## 🧾 Course Details
+
+- **Course Code:** ISL46  
+- **Department:** Information Science and Engineering  
+- **Institute:** Ramaiah Institute of Technology (Autonomous, Affiliated to VTU)  
+- **Exam Duration:** 3 hours  
+- **Max Marks:** 50  
+- **Credits:** 0:0:1  
+
+---
+
+## 📝 List of Programs
+
+### 🔎 1. Search Algorithms (with Comparison Count)
+
+- 🔹 Linear Search  
+- 🔹 Binary Search  
+
+For varying `n`, trace and compute:
+- Number of comparisons
+- Formula derivation for best, average, and worst cases
+
+---
 
 ### 🔢 2. Time Complexity Analysis with Varying Inputs
 
-Write programs for each of the following and plot the time complexity for varying values of `n`. Indicate the parameter `n` and the basic operations:
+Analyze time taken for varying sizes of input `n`:
+- **a.** Sum of array elements  
+- **b.** Binary equivalent of a decimal number  
+- **c.** Print even elements from a matrix  
 
-- **a.** Find the sum of all elements in an array.
-- **b.** Find the binary equivalent of a given decimal number.
-- **c.** Read a matrix and print only the even elements.
+📈 Graphs show time vs input size.
 
 ---
 
 ### 🔃 3. Sorting Goods Packages (Bubble/Selection Sort)
 
-Write a Python program to sort a set of goods packages (identified by integer labels) using **Bubble Sort** or **Selection Sort**.
-
-Plot a graph of number of label identifiers versus time taken.
+- Sort packages using **Bubble Sort** or **Selection Sort**
+- Measure time taken for different values of `n`
+- Plot graph: `Number of packages` vs `Time taken`
 
 ---
 
 ### 📚 4. Sorting Books by ISBN (Merge Sort)
 
-Each book in a library is assigned a unique ISBN. Write a program to sort books by ISBN using **Merge Sort**.
-
-Measure and plot time taken for different values of `N`.
+- Sort book records using **Merge Sort**
+- Plot time taken vs number of books
 
 ---
 
 ### 🗂️ 5. Sorting Files by ID (Quick Sort)
 
-Given `n` files numbered with IDs, write a program to sort them using **Quick Sort**.
-
-Determine time taken and plot a graph of number of IDs versus time taken.
+- Sort file IDs using **Quick Sort**
+- Time and performance graph included
 
 ---
 
 ### 🔍 6. Pattern Matching in Strings (Horspool’s Algorithm)
 
-Write a Python program to search for a pattern in a given string using **Horspool’s algorithm**.
-
-Include a trace of the algorithm's execution.
+- Implement **Horspool’s algorithm** for pattern searching
+- Include execution trace
 
 ---
 
 ### 🌐 7. Graph Algorithms
 
-- **a.** Find the **transitive closure** of a graph using **Warshall’s algorithm**.
-- **b.** Find **shortest paths between all cities** using **Floyd’s algorithm**.
+- **a.** Transitive Closure using **Warshall’s Algorithm**  
+- **b.** All-pairs shortest paths using **Floyd’s Algorithm**  
 
-Provide algorithm traces for both implementations.
+Both include full algorithm trace.
 
 ---
 
 ### 🎒 8. 0/1 Knapsack Problem (Dynamic Programming)
 
-Given `N` items with weight and value, and a bag of capacity `W`, find the subset of items that maximizes profit.
-
-Implemented using **Dynamic Programming**. Includes trace of algorithm steps.
+- Maximize profit using **DP approach**
+- Show matrix trace and final result
 
 ---
 
-### ⚡ 9. Minimum Cost Electrical Layout (Kruskal's Algorithm)
+### ⚡ 9. Minimum Cost Electrical Layout (Kruskal’s Algorithm)
 
-Design an optimal electrical layout by connecting `n` houses with minimum cost using **Kruskal’s algorithm**.
-
-Also includes time and space complexity analysis.
+- Use **Kruskal’s algorithm** to design optimal layout  
+- Include time & space complexity analysis
 
 ---
 
 ### 🛣️ 10. Shortest Paths from Source City (Dijkstra’s Algorithm)
 
-Given a weighted graph of `N` cities, find the shortest paths from a given city to all others using **Dijkstra’s algorithm**.
-
-Includes a trace of algorithm execution.
+- Implement **Dijkstra’s Algorithm** for single-source shortest paths  
+- Include trace and cost matrix
 
 ---
 
 ### 🌳 11. Reachable Nodes in Digraph (BFS)
 
-Write a program to print all nodes reachable from a given starting node in a directed graph using **Breadth-First Search (BFS)**.
-
-Trace of the algorithm is provided.
+- Use **Breadth-First Search** to find all reachable nodes  
+- Provide BFS trace
 
 ---
 
-## 📈 Graphs and Analysis
+### 🧠 12. Hostel Room Allotment (N-Queens Problem)
 
-For problems involving time complexity analysis, you’ll find graphs plotted using `matplotlib`. These visualize how the algorithm performs as `n` increases, helping understand theoretical vs. practical efficiency.
+- Allocate `N` students to `N×N` rooms using **N-Queens backtracking**  
+- Ensure no two are in same row, column, or diagonal  
+- Include solution trace
+
+---
+
+## 📈 Graphs & Complexity Analysis
+
+- Graphs are plotted using `matplotlib`
+- Help understand practical vs theoretical time complexities
+
+---
+
+## ⚙️ Technologies Used
+
+- 🐍 Python 3
+- 📊 Matplotlib (for plotting graphs)
+- 📝 Jupyter Notebooks / `.py` scripts
 
 ---
 
 ## 👨‍💻 Author
 
-**Nithish Reddy** *(Student)*
-
-B.E Information Science and Engineering
-
+**Nithish Reddy**  
+Student – B.E. Information Science and Engineering  
 Ramaiah Institute of Technology
