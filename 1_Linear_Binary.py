@@ -1,57 +1,58 @@
 import matplotlib.pyplot as plt
 import time
 
-def LinearSearch(a, n, key):
-    Lcount = 0
-    for i in range(n):
-        Lcount += 1
-        if a[i] == key:
-            print(f"Key found at pos: {i}")
-            return Lcount
+def linear_search(arr, key):
+    count = 0
+    for i in range(len(arr)):
+        count += 1
+        if arr[i] == key:
+            print("Key found at position:", i)
+            return count
     print("Key not found")
-    return Lcount
+    return count
 
-def BinarySearch(a, n, key):
-    Bcount = 0
+def binary_search(arr, key):
     low = 0
-    high = n - 1
+    high = len(arr) - 1
+    count = 0
     while low <= high:
-        Bcount += 1
+        count += 1
         mid = (low + high) // 2
-        if a[mid] == key:
-            print(f"Key found at pos: {mid}")
-            return Bcount
-        elif key < a[mid]:
+        if arr[mid] == key:
+            print("Key found at position:", mid)
+            return count
+        elif key < arr[mid]:
             high = mid - 1
         else:
             low = mid + 1
     print("Key not found")
-    return Bcount
+    return count
 
-if __name__ == "__main__":
-    n = int(input("Enter n: "))
-    a = list(range(n))  # simplified
-    print(a)
-    key = int(input("Enter Key: "))
+# Main program
+n = int(input("Enter the size of the array: "))
+arr = list(range(n))
+print("Array:", arr)
 
-    # Linear Search
-    start = time.perf_counter()
-    Lcount = LinearSearch(a, n, key)
-    end = time.perf_counter()
-    Lgap = end - start
+key = int(input("Enter the key to search: "))
 
-    # Binary Search
-    start = time.perf_counter()
-    Bcount = BinarySearch(a, n, key)
-    end = time.perf_counter()
-    Bgap = end - start
+# Linear Search
+start = time.perf_counter()
+l_count = linear_search(arr, key)
+end = time.perf_counter()
+l_time = end - start
 
-    print(f"Number of comparisons in Linear Search: {Lcount}")
-    print(f"Number of comparisons in Binary Search: {Bcount}")
+# Binary Search
+start = time.perf_counter()
+b_count = binary_search(arr, key)
+end = time.perf_counter()
+b_time = end - start
 
-    # Plot
-    plt.bar(['Linear Search', 'Binary Search'], [Lgap, Bgap], color=['red', 'green'])
-    plt.xlabel("Search Algorithm")
-    plt.ylabel("Time (seconds)")
-    plt.title("Linear vs Binary Search Timing")
-    plt.show()
+print("\nNumber of comparisons in Linear Search:", l_count)
+print("Number of comparisons in Binary Search:", b_count)
+
+# Plotting the comparison
+plt.bar(["Linear Search", "Binary Search"], [l_time, b_time], color=["red", "green"])
+plt.xlabel("Search Algorithm")
+plt.ylabel("Time (seconds)")
+plt.title("Linear vs Binary Search Timing")
+plt.show()
