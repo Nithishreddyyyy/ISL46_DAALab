@@ -1,5 +1,5 @@
 N = 4   # Number of items
-W = 7   # Capacity of the bag
+W = 8   # Capacity of the bag
 
 def knapsack(wt, val):
     dp = [[0] * (W + 1) for _ in range(N + 1)]
@@ -14,7 +14,7 @@ def knapsack(wt, val):
     print(f"Maximum profit = {dp[N][W]}")
 
 # Inputs
-weights = [1, 3, 4, 5]
-values = [1, 4, 5, 7]
+weights = [3,4,6,5]
+values = [2,3,1,4]
 
 knapsack(weights, values)
