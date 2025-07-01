@@ -27,11 +27,9 @@ def dijkstra(graph, n, source):
 
 if __name__ == "__main__":
     graph = [
-        [0, 3, 999, 7, 999],
-        [3, 0, 4, 2, 999],
-        [999, 4, 0, 5, 6],
-        [7, 2, 5, 0, 4],
-        [999, 999, 6, 4, 0]
+        [0,   2, 999],  z
+        [999, 0,   3],  
+        [999, 999, 0]   
     ]
     n = len(graph)
     source = int(input("Enter source node= "))
