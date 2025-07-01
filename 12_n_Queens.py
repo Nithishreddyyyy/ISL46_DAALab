@@ -1,36 +1,32 @@
-def isSafe(board,row,col):
+def is_safe(board, row, col):
     for i in range(row):
-        if board[i] == col:
-            return False
-        if abs(board[i] - col) == abs(i - row):
+        if board[i] == col or abs(board[i] - col) == abs(i - row):
             return False
     return True
 
-def solve_n_queens(row,board,n):
+def solve(row, board, n):
     if row == n:
-        print("\nRoom Allicatoins:")
+        print("\nRoom Allocations:")
         for i in range(n):
-            row = " ".join(["Q" if board[i] == j else "*" for j in range(n)])
-            print(row)
+            print(" ".join("Q" if board[i] == j else "*" for j in range(n)))
         return True
-    
     for col in range(n):
-        if isSafe(board,row,col):
+        if is_safe(board, row, col):
             board[row] = col
-            if solve_n_queens(row +1 , board , n):
+            if solve(row + 1, board, n):
                 return True
     return False
 
 def allocate_rooms(n):
     board = [-1] * n
-    if not solve_n_queens(0,board,n):
-        print("no valid allocation possibe.")
-    
+    if not solve(0, board, n):
+        print("No valid allocation possible.")
+
 try:
-    N= int(input("Enter number of queens: "))
-    if N <= 0:
-        print("Enter a positive number.")
-    else:
+    N = int(input("Enter number of queens: "))
+    if N > 0:
         allocate_rooms(N)
+    else:
+        print("Enter a positive number.")
 except ValueError:
-    print("Invalid input . please enter a valid integer")
+    print("Invalid input. Please enter a valid integer.")
