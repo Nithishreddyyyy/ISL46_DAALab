@@ -25,11 +25,5 @@ def allocate_rooms(n):
     if not solve(0, board, n):
         print("No valid allocation possible.")
 
-try:
-    N = int(input("Enter number of queens: "))
-    if N > 0:
-        allocate_rooms(N)
-    else:
-        print("Enter a positive number.")
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
+n = int(input("enter the number of rooms: "))
+allocate_rooms(n)
