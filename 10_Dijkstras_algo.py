@@ -42,4 +42,4 @@ if __name__ == "__main__":
     dijkstra(graph, n, source)
     print("Shortest path from source =", source)
     for i in range(n):
-        print(str(source) + " --> " + str(i) + " = " + (str(dist[i]) if dist[i] != 999 else "Unreachable"))
+        print(f"{source} ---> {i} ==== {dist[i]}" if dist[i]!=999 else "not found")
