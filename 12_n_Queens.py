@@ -8,7 +8,10 @@ def solve(row, board, n):
     if row == n:
         print("\nRoom Allocations:")
         for i in range(n):
-            print(" ".join("Q" if board[i] == j else "*" for j in range(n)))
+            line = ""
+            for j in range(n):
+                line+=" Q " if board[i] == j else " * "
+            print(line.strip())
         return True
     for col in range(n):
         if is_safe(board, row, col):
