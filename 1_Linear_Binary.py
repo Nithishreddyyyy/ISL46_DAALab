@@ -45,8 +45,8 @@ if __name__ == "__main__":
     end = time.time()
     gap2 = end - start
     
-    print("Number of comparisitons : ",Lcount)
-    print("Number of comparisitons : ",Bcount)
+    print("Number of comparisons : ",Lcount)
+    print("Number of comparisons : ",Bcount)
     
     plt.bar(["linear Search","Binary Search"], [Lcount,Bcount])
     plt.xlabel("Search Algo")
