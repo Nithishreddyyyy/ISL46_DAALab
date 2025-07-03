@@ -1,5 +1,5 @@
 #Horspool's Algorithm
-text = 'JIM_SAW_ME_IN_BARBER_SHOP'
+text = 'JIM_SAW_ME_IN_A_BARBER_SHOP'
 pattern = 'BARBER'
 n = len(text)
 m = len(pattern)
