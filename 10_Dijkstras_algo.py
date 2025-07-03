@@ -27,7 +27,7 @@ def dijkstra(graph, n, source):
 
 if __name__ == "__main__":
     graph = [
-        [0,   2, 999],  z
+        [0,   2, 999],
         [999, 0,   3],  
         [999, 999, 0]   
     ]
